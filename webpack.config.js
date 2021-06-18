@@ -1,26 +1,20 @@
-const path = require('path');
+const path = require('path')
 
-module.exports = [{
-    entry: {
-        main: './src/index.js',
-    },
-    output: {
-        path: path.resolve(__dirname, 'dist/'),
-        filename: 'vfb-[name].js'
-    },
-    mode: 'development',
-    resolve: {
-		alias: {
-			'vue': '@vue/runtime-dom'
-		}
-    },
-    module: {
-        rules: [
-            {
-                test: /\.css$/,
-                use: ['style-loader', 'css-loader']
-            }
-        ]
-    },
-	watch: true
-}];
+module.exports = {
+  entry: './src/index.js',
+  output: {
+    path: path.resolve(__dirname, './dist'),
+    filename: 'vfb-main.js'
+  },
+  resolve: {
+    alias: {                
+      vue: "vue/dist/vue.esm-bundler.js"
+    }
+  },
+  mode: 'development',
+  module: {
+    rules: [
+    ]
+  },
+  watch: true,
+}

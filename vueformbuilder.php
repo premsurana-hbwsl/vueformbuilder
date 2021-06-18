@@ -62,9 +62,17 @@ function vfb_menu_page() {
  */
 function vfb_app() {
 	wp_enqueue_script( 'vfb-main' );
+	wp_localize_script(
+		'vfb-main',
+		'translations',
+		array(
+			'first'  => 'first',
+			'second' => 'second',
+		)
+	)
 	?>
 		<div id="vfb-app">
-			{{ hello }}
+			
 		</div>
 	<?php
 }

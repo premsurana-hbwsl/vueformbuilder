@@ -1,11 +1,6 @@
-import Vue from 'vue';
-import draggable from 'vuedraggable';
+import { createApp } from 'vue';
+import App from './components/App.js';
 
-var somethin = new Vue({
-	el: '#vfb-app',
-	data: () => {
-		return {
-			hello: 'hello world'
-		}
-	}
-});
+if ( document.getElementById( 'vfb-app' ) ) {
+	createApp(App).mount('#vfb-app');
+}
