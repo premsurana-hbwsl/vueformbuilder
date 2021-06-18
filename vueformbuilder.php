@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The plugin bootstrap file
  *
@@ -71,19 +72,44 @@ function vfb_app() {
 		)
 	)
 	?>
-		<div id="vfb-app">
-			<div class="left"></div>
-			<div class="right"></div>
+	<div id="vfb-app" class="wrap">
+	
+		<div class="left">
+			<draggable 
+				v-model="listA" 
+				group="newList" 
+				@start="drag=true" 
+				@end="drag=false" 
+				item-key="id">
+				<template #item="{element}">
+					<div class="list-items"><h3>{{element}}</h3></div>
+				</template>
+			</draggable>
 		</div>
+		<div class="right">
+			<draggable 
+				v-model="listB" 
+				group="newList" 
+				@start="drag=true" 
+				@end="drag=false" 
+				item-key="id">
+				<template #item="{element}">
+					<div class="list-items"><h3>{{element}}</h3></div>
+				</template>
+			</draggable>
+		</div>
+	</div>
 	<?php
 }
 
 add_action( 'admin_menu', 'vfb_menu_page' );
 
-add_action('wp_default_scripts', function ($scripts) {
+add_action(
+	'wp_default_scripts',
+	function ( $scripts ) {
 
-    if (!empty($scripts->registered['jquery'])) {
-        $scripts->registered['jquery']->deps = array_diff($scripts->registered['jquery']->deps, ['jquery-migrate']);
-    }
-});
-
+		if ( ! empty( $scripts->registered['jquery'] ) ) {
+			$scripts->registered['jquery']->deps = array_diff( $scripts->registered['jquery']->deps, array( 'jquery-migrate' ) );
+		}
+	}
+);

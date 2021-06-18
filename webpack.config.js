@@ -8,10 +8,10 @@ module.exports = {
     },
     resolve: {
         alias: {
-            vue$: "vue/dist/vue.esm-browser",
+            vue$: "vue/dist/vue.esm-browser.prod",
         },
     },
-    mode: "development",
+    mode: "production",
     module: {
         rules: [
             {
@@ -20,5 +20,4 @@ module.exports = {
             },
         ],
     },
-    watch: true,
 };
