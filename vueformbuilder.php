@@ -72,10 +72,18 @@ function vfb_app() {
 	)
 	?>
 		<div id="vfb-app">
-			
+			<div class="left"></div>
+			<div class="right"></div>
 		</div>
 	<?php
 }
 
 add_action( 'admin_menu', 'vfb_menu_page' );
+
+add_action('wp_default_scripts', function ($scripts) {
+
+    if (!empty($scripts->registered['jquery'])) {
+        $scripts->registered['jquery']->deps = array_diff($scripts->registered['jquery']->deps, ['jquery-migrate']);
+    }
+});
 

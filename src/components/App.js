@@ -1,7 +1,7 @@
 import { defineComponent } from "vue";
+import './App.css';
 
 export default defineComponent({
-    el: "#vfb-app",
     data: () => {
         return {
             hello: "HELLLLLLLO",
